@@ -1,5 +1,3 @@
-# PROJECT
-FOUND A,Q, need R and c
 ##########################
 # PART 1: Code
 ##########################
@@ -202,10 +200,15 @@ print('Orthanormal Matrix Q=')
 print(Q)
 
 def Rmatrix(Q,A):
-  #Qt = MatrixTranspose(Q)
-  R = matmatmult(Q,A)
+  Qt = MatrixTranspose(Q)
+  At = MatrixTranspose(A)
+  R = matmatmult(Q,At)
   return R
 
 R=Rmatrix(Q,A) 
-print('Upper Triangular Matrix R=')
-print(R)
+print('Upper Triangular Matrix R= (Rounded to the nearest 4 decimal places)')
+Rrounded=[[0 for col in range(len(R[0]))] for row in range(len(R))]
+for i in range(len(R)):
+  for j in range(len(R[0])):
+    Rrounded[i][j]=round(R[i][j],4)
+print(Rrounded)
